@@ -1,0 +1,135 @@
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color:azure;
+}
+h1{
+  text-align: center;
+  font-size: 2.2rem;
+  padding: 1rem;
+}
+.container{
+  height: 50vh;
+  width: 60%;
+  background-color: white;
+  /* border: 2px solid red; */
+  margin: auto;
+}
+.container .discription{
+  border: 1px solid gray;
+  padding: 0.8rem 0.6rem;
+}
+.container input[type ="text"]{
+  width: 100%;
+  height: 7vh;
+  outline: none;
+  border: none;
+}
+.category-date{
+  display: flex;
+}
+.category-date>div{
+  width: 50%;
+  border: 1px solid lightgray;
+  padding: 10px;
+  font-size: 1.2rem;
+}
+.category select{
+  outline: none;
+  border: none;
+  width: 80%;
+  margin-top: 3px;
+  padding: 3px;
+}
+.date input[type='date']{
+  border: none;
+  outline: none;
+  padding: 3px;
+  margin-top: 3px;
+}
+/* buttons  */
+.btn{
+  width: 100%;
+  border: 1px solid lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  
+}
+.btn button{
+  padding: 8px 18px;
+  margin-left: 10px;
+  color: white;
+  letter-spacing: 1px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border: none;
+}
+
+#add{
+  background-color: black;
+}
+#delete{
+  background-color: orangered;
+  
+}
+/* output  */
+.results{
+  height: auto;
+  padding-bottom: 2rem;
+  /* border: 2px solid black; */
+}
+.results ul li{
+  height: auto;
+  border: 1px solid red;
+  list-style: none;
+  display: flex;
+  margin-top: 5px;
+}
+.results ul li input[type="checkbox"]{
+  height: 1.1rem;
+  width: 1.1rem;
+  margin: 20px 8px;
+}
+.results ul li p{
+  font-size: 1.2rem;
+}
+.items{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  left: 10px;
+  width: 96%;
+  /* border: 1px solid green; */
+  padding: 8px;
+}
+.items #selected-category{
+  position: absolute;
+  left: 85%;
+  top: 15px;
+  width: 7rem;
+  padding: 5px 10px;
+  background: orangered;
+  color: white;
+  text-align: center;
+}
+#calender{
+  font-size: 15px !important;
+  color: gray;
+  margin-top: 8px;
+}
+  
+ 
+  
+  
+
+  
+  
+
+  
+  
