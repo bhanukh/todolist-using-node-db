@@ -10,9 +10,6 @@ const path= require('path');
 // importing the DataBase
 const db= require('./config/mongoose');
 
-//importing  todo schema
-const Todo= require('./models/todo');
-
 // using express
 const app=express();
 
@@ -29,61 +26,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 // using static files
 app.use(express.static('assets'));
 
-
-// rendering the App Page
-app.get('/', function(req, res){
-    Todo.find({}, function(err, todo){
-        if(err){
-            console.log('Error in fetching tasks from db');
-            return;
-        }
-
-        return res.render('home', {
-            //sending title name
-            tittle: "Todo-List",
-            todo: todo
-        });
-    }
-)});
-
-
-// creating Tasks
-app.post('/create-task', function(req, res){
-  //  console.log("Creating Task");
-    
-    Todo.create({
-        description: req.body.description,
-        category: req.body.category,
-        date: req.body.date
-        }, function(err, newtodo){
-        if(err){console.log('error in creating task', err); return;}
-        
-
-        //console.log(newtask);
-        return res.redirect('back');
-
-    });
-});
-
-
-// deleting Tasks
-app.get('/delete-task', function(req, res){
-    // get the id from query
-    var id = req.query;
-
-    // checking the number of tasks selected to delete
-    var count = Object.keys(id).length;
-    for(let i=0; i < count ; i++){
-        
-        // finding and deleting tasks from the DB one by one using id
-        Todo.findByIdAndDelete(Object.keys(id)[i], function(err){
-        if(err){
-            console.log('error in deleting task');
-            }
-        })
-    }
-    return res.redirect('back'); 
-});
+//use express router
+app.use('/', require('./routes/index'));
 
 // make the app to listen on asigned port number
 app.listen(port, function(err){
