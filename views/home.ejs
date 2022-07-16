@@ -18,12 +18,15 @@
     <div class="container">
       <!-- creating form for collecting todo data -->
       <form action='/create-task' method="POST">
+
         <div class="discription">
           <h5>DESCRIPTION</h5>
+          <!-- input fild for description -->
           <input type="text" name="description" placeholder="What do you need to do?" required/>
         </div>
         <div class="category-date">
           <div class="category">
+            <!-- secting option -->
             <h5>CATEGORY</h5>
             <select name="category" required>
               <option value="">Choose a Category</option>
@@ -34,6 +37,7 @@
               <option value="Other">Other</option>
             </select>
           </div>
+          <!-- due date -->
           <div class="date">
             <h5>DUE DATE</h5>
             <input type="date" name="date" required/><br /><br />
@@ -51,14 +55,16 @@
           <!-- delete button -->
         <button type="submit" id="delete" value="Delete-task"><i class="fa-solid fa-trash-can"></i>DELETE-TASK</button>
         </div>
+        <!-- output screen -->
         <div class="results">
         <ul>
           <!-- loop for showing results -->
           <% for(let i of todo) { %>
             <li>
+              <!-- checkbox for checking -->
               <input type="checkbox" name="<%= i._id %>" />
               <div class="items">
-                
+                <!-- display data of todo -->
                 <p id="description"><%= i.description %></p>
                 <p id="selected-category"><%= i.category %></p>
                 <p id="calender"><i class="fa-solid fa-calendar-days"></i> <%= i.date %></p>
