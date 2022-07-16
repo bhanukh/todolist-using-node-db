@@ -16,7 +16,8 @@ h1{
 }
 /* todo container */
 .container{
-  height: 50vh;
+  height: auto;
+  min-height: 30vh;
   width: 60%;
   background-color: white;
   margin: auto;
@@ -104,6 +105,10 @@ h1{
 .results ul li p{
   font-size: 1.2rem;
 }
+
+h3{
+  text-transform: capitalize;
+}
 .items{
   display: flex;
   flex-direction: column;
@@ -112,16 +117,20 @@ h1{
   width: 96%;
   padding: 8px;
 }
+input:checked +.items h3#description{
+  text-decoration: line-through;
+  }
 .items #selected-category{
   position: absolute;
   left: 85%;
   top: 15px;
   width: 7rem;
   padding: 5px 10px;
-  background: orangered;
+  background: blueviolet;
   color: white;
   text-align: center;
 }
+
 /* due date */
 #calender{
   font-size: 15px !important;
