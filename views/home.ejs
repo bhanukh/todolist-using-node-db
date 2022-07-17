@@ -1,86 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- starting of head section -->
-  <head>
-    <!-- title name -->
-    <title><%= tittle %></title>
+<!-- starting of head section -->
 
-    <!-- linking css file -->
-    <link rel="stylesheet" href="/css/style.css">
-    <!-- linking font awesome cdn for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-  </head>
-  <!-- ending of head section -->
-  <!-- starting of body -->
-  <body>
-    <!-- title heading of page -->
-    <h1>TODO APP</h1>
-    <div class="container">
-      <!-- creating form for collecting todo data -->
-      <form action='/create-task' method="POST">
+<head>
+  <!-- title name -->
+  <title>
+    <%= tittle %>
+  </title>
 
-        <div class="discription">
-          <h5>DESCRIPTION</h5>
-          <!-- input fild for description -->
-          <input type="text" name="description" placeholder="What do you need to do?" required/>
-        </div>
-        <div class="category-date">
-          <div class="category">
-            <!-- secting option -->
-            <h5>CATEGORY</h5>
-            <select name="category" required>
-              <option value="">Choose a Category</option>
-              <option value="Personal">Personal</option>
-              <option value="Work">Work</option>
-              <option value="School">School</option>
-              <option value="Cleaning">Cleaning</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-          <!-- due date -->
-          <div class="date">
-            <h5>DUE DATE</h5>
-            <input type="date" name="date" required/><br /><br />
-          </div>
-        </div>
-        <div class="btn">
-          <!-- submit button -->
-            <button type="submit" id="add"><i class="fa-solid fa-plus"></i> ADD TASK</button>
-      
-      </form>
-      
-      
-        <!-- creting form for deleting data -->
-        <form action="/delete-task" method="get">
-          <!-- delete button -->
-        <button type="submit" id="delete" value="Delete-task"><i class="fa-solid fa-trash-can"></i>DELETE-TASK</button>
-        </div>
-        <!-- output screen -->
-        <div class="results">
-        <ul>
-          <!-- loop for showing results -->
-          <% for(let i of todo) { %>
-            <li>
-              <!-- checkbox for checking -->
-              <input type="checkbox" name="<%= i._id %>" />
-              <div class="items">
-                <!-- display data of todo -->
-                <h3 id="description"><%= i.description %></h3>
-                <p id="selected-category"><%= i.category %></p>
-                <p id="calender"><i class="fa-solid fa-calendar-days"></i> <%= i.date %></p>
-              </div>
-            </li>
-          <% } %>
-          <!-- end of for loop -->
-        </ul>
-        
-      </form>
-           <!-- end of form -->
+  <!-- linking css file -->
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- linking font awesome cdn for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<!-- ending of head section -->
+<!-- starting of body -->
+
+<body>
+  <!-- title heading of page -->
+  <h1>TODO APP</h1>
+  <div class="container">
+    <!-- creating form for collecting todo data -->
+    <form action='/create-task' method="POST">
+
+      <div class="discription">
+        <h5>DESCRIPTION</h5>
+        <!-- input fild for description -->
+        <input type="text" name="description" placeholder="What do you need to do?" required />
       </div>
-    
-    </div>
-    <!-- end of container -->
-  </body>
-  <!-- end of body -->
+      <div class="category-date">
+        <div class="category">
+          <!-- secting option -->
+          <h5>CATEGORY</h5>
+          <select name="category" required>
+            <option value="">Choose a Category</option>
+            <option value="Personal">Personal</option>
+            <option value="Work">Work</option>
+            <option value="School">School</option>
+            <option value="Cleaning">Cleaning</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <!-- due date -->
+        <div class="date">
+          <h5>DUE DATE</h5>
+          <input type="date" name="date" required /><br /><br />
+        </div>
+      </div>
+      <div class="btn">
+        <!-- submit button -->
+        <button type="submit" id="add"><i class="fa-solid fa-plus"></i> ADD TASK</button>
+
+    </form>
+
+
+    <!-- creting form for deleting data -->
+    <form action="/delete-task" method="get">
+      <!-- delete button -->
+      <button type="submit" id="delete" value="Delete-task"><i class="fa-solid fa-trash-can"></i>DELETE-TASK</button>
+  </div>
+  <!-- output screen -->
+  <div class="results">
+    <ul>
+      <!-- loop for showing results -->
+      <% for(let i of todo) { %>
+        <li>
+          <!-- checkbox for checking -->
+          <input type="checkbox" name="<%= i._id %>" />
+          <div class="items">
+            <!-- display data of todo -->
+            <h3 id="description">
+              <%= i.description %>
+            </h3>
+            <h4 id="selected-category">
+              <%= i.category %>
+            </h4>
+            <p id="calender"><i class="fa-solid fa-calendar-days"></i>
+              <%= i.date %>
+            </p>
+          </div>
+        </li>
+        <% } %>
+          <!-- end of for loop -->
+    </ul>
+
+    </form>
+    <!-- end of form -->
+  </div>
+
+  </div>
+  <!-- end of container -->
+  <!-- java script file for changing category color -->
+  <script>
+    const odd = document.getElementById('selected-category');
+     odd.style.backgroundColor = 'green';
+  </script>
+
+</body>
+<!-- end of body -->
 
 </html>

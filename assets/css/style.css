@@ -121,13 +121,14 @@ h3{
 input:checked +.items h3#description{
   text-decoration: line-through;
   }
+
 .items #selected-category{
   position: absolute;
   left: 85%;
   top: 15px;
   width: 7rem;
   padding: 5px 10px;
-  background: blueviolet;
+  background-color: blueviolet;
   color: white;
   text-align: center;
 }
